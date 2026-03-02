@@ -29,7 +29,7 @@
     <!-- ========== HERO ========== -->
     <header class="hero">
       <div class="container hero-inner">
-        <span class="badge"><i class="fa-solid fa-flask"></i> Nature Machine Intelligence</span>
+        <span class="badge"><i class="fa-solid fa-flask"></i> Surgical AI Research</span>
         <h1><span class="highlight">Surg-R1</span></h1>
         <p class="hero-sub">Hierarchical 3-Level Reasoning for Surgical Scene Understanding</p>
 
@@ -196,30 +196,6 @@
         </div>
       </section>
 
-      <!-- ========== BIBTEX ========== -->
-      <section id="cite" class="section section-alt">
-        <div class="container narrow">
-          <h2 class="section-title">Citation</h2>
-          <div class="cite-box">
-            <button class="copy-btn" onclick="copyBib()" title="Copy to clipboard"><i class="fa-regular fa-copy"></i></button>
-<pre id="bibtex">@article{jiang2026surgr1,
-  title   = {Surg-R1: Hierarchical 3-Level Reasoning
-             for Surgical Scene Understanding},
-  author  = {Jiang, Jian and Lin, Chenxi and Gu, Yiming
-             and Qin, Zengyi and Zeng, Zhitao and Yuan, Kun
-             and Yuan, Cheng and Wang, Yuqi and Yue, Zijie
-             and Yang, Kunyi and Zhang, Yuting and Long, Yonghao
-             and Zhuo, Zhu and Qin, Dian and Wang, Xin
-             and Xia, Xiang and Anthony, Brian and Xu, Daguang
-             and Rosman, Guy and Meireles, Ozanan and Zhang, Zizhen
-             and Padoy, Nicolas and Navab, Nassir and Wang, Hesheng
-             and Dou, Qi and Jin, Yueming and Ban, Yutong},
-  journal = {Nature Machine Intelligence},
-  year    = {2026}
-}</pre>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer class="footer">
@@ -232,14 +208,5 @@
       </div>
     </footer>
 
-    <script>
-      function copyBib() {
-        const t = document.getElementById("bibtex").innerText;
-        navigator.clipboard.writeText(t);
-        const btn = document.querySelector(".copy-btn");
-        btn.innerHTML = '<i class="fa-solid fa-check"></i>';
-        setTimeout(() => btn.innerHTML = '<i class="fa-regular fa-copy"></i>', 1500);
-      }
-    </script>
   </body>
 </html>
