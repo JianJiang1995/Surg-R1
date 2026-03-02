@@ -640,10 +640,49 @@ h1 {
 
 .pipe-arrow {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
   padding: 0.4rem 0;
   color: #b0b8c9;
   font-size: 1rem;
+}
+
+.pipe-arrow-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.01em;
+}
+
+.design-note {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  padding: 1rem 1.2rem;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: var(--radius);
+}
+
+.design-note > i {
+  flex-shrink: 0;
+  color: #d97706;
+  font-size: 0.95rem;
+  margin-top: 0.2rem;
+}
+
+.design-note > p {
+  font-size: 0.88rem;
+  color: #78350f;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.design-note strong {
+  color: #92400e;
 }
 
 .contra-grid {
