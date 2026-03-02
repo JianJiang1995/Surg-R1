@@ -3,97 +3,243 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Surg-R1 | Project Homepage</title>
-    <meta
-      name="description"
-      content="Surg-R1: Hierarchical 3-level Reasoning for Surgical Scene Understanding."
-    />
+    <title>Surg-R1 | Hierarchical Reasoning for Surgical Scene Understanding</title>
+    <meta name="description" content="Surg-R1: Hierarchical 3-level Reasoning for Surgical Scene Understanding. A surgical VLM with chain-of-thought reasoning." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- ========== NAV ========== -->
+    <nav class="topnav">
+      <div class="container nav-inner">
+        <a href="#" class="nav-brand">Surg-R1</a>
+        <div class="nav-links">
+          <a href="#demo">Demo</a>
+          <a href="#abstract">Abstract</a>
+          <a href="#results">Results</a>
+          <a href="#method">Method</a>
+          <a href="#authors">Team</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
     <header class="hero">
-      <div class="container">
-        <p class="tag">Nature Machine Intelligence Submission</p>
-        <h1>Surg-R1</h1>
-        <p class="subtitle">
-          Hierarchical 3-level Reasoning for Surgical Scene Understanding
-        </p>
-        <p class="summary">
-          Surg-R1 is a surgical vision-language model with hierarchical
-          chain-of-thought reasoning. It unifies perceptual grounding,
-          relational understanding, and contextual reasoning across six surgical
-          AI tasks and thirteen datasets.
-        </p>
-        <div class="cta-row">
-          <a href="#demo" class="btn btn-primary">Watch Demo</a>
-          <a href="#overview" class="btn btn-secondary">Project Overview</a>
+      <div class="container hero-inner">
+        <span class="badge"><i class="fa-solid fa-flask"></i> Nature Machine Intelligence</span>
+        <h1><span class="highlight">Surg-R1</span></h1>
+        <p class="hero-sub">Hierarchical 3-Level Reasoning for Surgical Scene Understanding</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-val">7B</span>
+            <span class="stat-label">Parameters</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-val">320K</span>
+            <span class="stat-label">CoT Pairs</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-val">13</span>
+            <span class="stat-label">Datasets</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-val">64.9%</span>
+            <span class="stat-label">Arena Score</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#demo" class="btn btn-white"><i class="fa-solid fa-play"></i> Watch Demo</a>
+          <a href="https://github.com/JianJiangKCL/Surg-R1" class="btn btn-outline" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
       </div>
     </header>
 
     <main>
+      <!-- ========== DEMO VIDEO ========== -->
       <section id="demo" class="section">
         <div class="container">
-          <h2>Software Demo Video</h2>
-          <p class="section-text">
-            Demonstration of the Surg-R1 software workflow and interactive
-            reasoning capability in surgical scene analysis.
-          </p>
-          <div class="video-card">
-            <video
-              controls
-              preload="metadata"
-              playsinline
-              class="demo-video"
-              poster="assets/images/video-poster.svg"
-            >
+          <h2 class="section-title">Software Demo</h2>
+          <p class="section-desc">Interactive demonstration of Surg-R1's hierarchical reasoning in real-time surgical scene analysis.</p>
+          <div class="video-wrapper">
+            <video controls preload="metadata" playsinline class="demo-video">
               <source src="assets/videos/surgr1-demo-web.mp4" type="video/mp4" />
-              Your browser does not support HTML5 video playback.
+              Your browser does not support HTML5 video.
             </video>
           </div>
         </div>
       </section>
 
-      <section id="overview" class="section section-muted">
+      <!-- ========== ABSTRACT ========== -->
+      <section id="abstract" class="section section-alt">
+        <div class="container narrow">
+          <h2 class="section-title">Abstract</h2>
+          <div class="abstract-card">
+            <p>Surgical scene understanding demands not only accurate predictions but also interpretable reasoning that surgeons can verify against clinical expertise. However, existing surgical vision-language models generate predictions without reasoning chains, and general-purpose reasoning models fail on compositional surgical tasks without domain-specific knowledge.</p>
+            <p>We present <strong>Surg-R1</strong>, a surgical Vision-Language Model that addresses this gap through hierarchical reasoning trained via a four-stage pipeline. Our approach introduces three key contributions: <strong>(1)</strong> a three-level reasoning hierarchy decomposing surgical interpretation into perceptual grounding, relational understanding, and contextual reasoning; <strong>(2)</strong> the largest surgical chain-of-thought dataset with 320,000 reasoning pairs; and <strong>(3)</strong> a four-stage training pipeline progressing from supervised fine-tuning to group relative policy optimization and iterative self-improvement.</p>
+            <p>Evaluation on <strong>SurgBench-13</strong>, comprising seven public benchmarks and six multi-center external validation datasets from five institutions, demonstrates that Surg-R1 outperforms GPT-5.1, Gemini 3.0 Pro, and specialized surgical VLMs across instrument localization, visual question answering, triplet recognition, phase recognition, action recognition, and critical view of safety assessment, achieving the highest Arena Score (<strong>64.9%</strong>) on public benchmarks versus GPT-5.1 (39.7%), Gemini 3.0 Pro (32.3%), and SurgVLM-72B (56.0%), and a 15.2 percentage point improvement over the strongest surgical baseline on external validation.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== RESULTS ========== -->
+      <section id="results" class="section">
         <div class="container">
-          <h2>Project Overview</h2>
-          <div class="grid">
-            <article class="card">
-              <h3>Core Idea</h3>
-              <p>
-                We introduce a three-level reasoning hierarchy for surgical
-                scene interpretation: perceptual grounding, relational
-                understanding, and contextual reasoning.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Training Pipeline</h3>
-              <p>
-                A four-stage pipeline combines supervised fine-tuning,
-                surgery-aware cold-start reasoning supervision, GRPO-based
-                reinforcement learning, and iterative refinement.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Evaluation Scope</h3>
-              <p>
-                The model is evaluated on 13 datasets (7 public + 6 external)
-                covering instrument localization, VQA, triplet recognition,
-                phase/action recognition, and CVS assessment.
-              </p>
-            </article>
+          <h2 class="section-title">Experimental Results</h2>
+          <p class="section-desc">Comprehensive evaluation across 13 datasets, 6 surgical AI tasks, and comparisons against 20+ state-of-the-art models.</p>
+
+          <div class="figure-block">
+            <figure>
+              <img src="assets/images/figure2.png" alt="Training data statistics, inhouse benchmark results, public benchmark arena scores, and CoT data composition" loading="lazy" />
+              <figcaption><strong>Figure 1.</strong> (a) Training data distribution across datasets. (b) Inhouse dataset benchmark. (c) Public dataset benchmark arena scores. (d) Chain-of-thought training data composition — 320K total reasoning pairs.</figcaption>
+            </figure>
+          </div>
+
+          <div class="figure-block">
+            <figure>
+              <img src="assets/images/figure1.png" alt="Surg-R1 overview: hierarchical reasoning, evaluation radar charts, and training pipeline" loading="lazy" />
+              <figcaption><strong>Figure 2.</strong> (a) Hierarchical 3-level chain-of-thought reasoning example. (b) Surgical anatomy coverage. (c) Radar charts comparing Surg-R1 with proprietary and open-source models on public benchmarks (left) and external validation (right). (d) Four-stage training pipeline overview.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== METHOD ========== -->
+      <section id="method" class="section section-alt">
+        <div class="container">
+          <h2 class="section-title">Method Overview</h2>
+          <div class="method-grid">
+            <div class="method-card">
+              <div class="method-icon"><i class="fa-solid fa-eye"></i></div>
+              <h3>Level 1 — Perceptual Grounding</h3>
+              <p>Identifies surgical instruments and anatomical structures with their visual characteristics (color, shape, texture).</p>
+            </div>
+            <div class="method-card">
+              <div class="method-icon"><i class="fa-solid fa-arrows-turn-to-dots"></i></div>
+              <h3>Level 2 — Relational Understanding</h3>
+              <p>Analyzes tool-tissue-action interactions to interpret what each instrument is doing and to which tissue.</p>
+            </div>
+            <div class="method-card">
+              <div class="method-icon"><i class="fa-solid fa-brain"></i></div>
+              <h3>Level 3 — Contextual Reasoning</h3>
+              <p>Synthesizes perceptual and relational evidence for phase recognition, safety assessment, and workflow analysis.</p>
+            </div>
+            <div class="method-card">
+              <div class="method-icon"><i class="fa-solid fa-diagram-project"></i></div>
+              <h3>4-Stage Training Pipeline</h3>
+              <p>SFT pretraining → Cold-start CoT supervision → GRPO reinforcement learning → Iterative dual-pathway refinement.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== AUTHORS ========== -->
+      <section id="authors" class="section">
+        <div class="container">
+          <h2 class="section-title">Authors</h2>
+          <p class="section-desc">An international collaboration across seven institutions.</p>
+
+          <div class="author-list">
+            <div class="author equal"><strong>Jian Jiang</strong><sup>1,†</sup></div>
+            <div class="author equal"><strong>Chenxi Lin</strong><sup>1,†</sup></div>
+            <div class="author"><strong>Yiming Gu</strong><sup>1</sup></div>
+            <div class="author"><strong>Zengyi Qin</strong></div>
+            <div class="author"><strong>Zhitao Zeng</strong><sup>2</sup></div>
+            <div class="author"><strong>Kun Yuan</strong></div>
+            <div class="author"><strong>Cheng Yuan</strong><sup>1</sup></div>
+            <div class="author"><strong>Yuqi Wang</strong><sup>1</sup></div>
+            <div class="author"><strong>Zijie Yue</strong><sup>6</sup></div>
+            <div class="author"><strong>Kunyi Yang</strong><sup>1</sup></div>
+            <div class="author"><strong>Yuting Zhang</strong><sup>1</sup></div>
+            <div class="author"><strong>Yonghao Long</strong><sup>4</sup></div>
+            <div class="author"><strong>Zhu Zhuo</strong><sup>2</sup></div>
+            <div class="author"><strong>Dian Qin</strong></div>
+            <div class="author"><strong>Xin Wang</strong></div>
+            <div class="author"><strong>Xiang Xia</strong><sup>5</sup></div>
+            <div class="author"><strong>Brian Anthony</strong></div>
+            <div class="author"><strong>Daguang Xu</strong></div>
+            <div class="author"><strong>Guy Rosman</strong></div>
+            <div class="author"><strong>Ozanan Meireles</strong></div>
+            <div class="author"><strong>Zizhen Zhang</strong></div>
+            <div class="author"><strong>Nicolas Padoy</strong><sup>7</sup></div>
+            <div class="author"><strong>Nassir Navab</strong><sup>3</sup></div>
+            <div class="author"><strong>Hesheng Wang</strong></div>
+            <div class="author"><strong>Qi Dou</strong><sup>4</sup></div>
+            <div class="author"><strong>Yueming Jin</strong><sup>2</sup></div>
+            <div class="author corresponding"><strong>Yutong Ban</strong><sup>1,*</sup></div>
+          </div>
+
+          <div class="affil-block">
+            <p class="affil-note"><sup>†</sup> Equal contribution &nbsp;&nbsp; <sup>*</sup> Corresponding author</p>
+            <ol class="affil-list">
+              <li>Shanghai Jiao Tong University, Shanghai, China</li>
+              <li>National University of Singapore, Singapore</li>
+              <li>Technical University of Munich, Germany</li>
+              <li>The Chinese University of Hong Kong, Hong Kong SAR, China</li>
+              <li>Renji Hospital, Shanghai Jiao Tong University School of Medicine, Shanghai, China</li>
+              <li>Tongji University, Shanghai, China</li>
+              <li>ICube, University of Strasbourg, CNRS, IHU Strasbourg, France</li>
+            </ol>
+          </div>
+
+          <div class="contact-card">
+            <h3><i class="fa-solid fa-envelope"></i> Contact</h3>
+            <p>Corresponding author: <strong>Yutong Ban</strong> — <a href="mailto:yban@sjtu.edu.cn">yban@sjtu.edu.cn</a></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== BIBTEX ========== -->
+      <section id="cite" class="section section-alt">
+        <div class="container narrow">
+          <h2 class="section-title">Citation</h2>
+          <div class="cite-box">
+            <button class="copy-btn" onclick="copyBib()" title="Copy to clipboard"><i class="fa-regular fa-copy"></i></button>
+<pre id="bibtex">@article{jiang2026surgr1,
+  title   = {Surg-R1: Hierarchical 3-Level Reasoning
+             for Surgical Scene Understanding},
+  author  = {Jiang, Jian and Lin, Chenxi and Gu, Yiming
+             and Qin, Zengyi and Zeng, Zhitao and Yuan, Kun
+             and Yuan, Cheng and Wang, Yuqi and Yue, Zijie
+             and Yang, Kunyi and Zhang, Yuting and Long, Yonghao
+             and Zhuo, Zhu and Qin, Dian and Wang, Xin
+             and Xia, Xiang and Anthony, Brian and Xu, Daguang
+             and Rosman, Guy and Meireles, Ozanan and Zhang, Zizhen
+             and Padoy, Nicolas and Navab, Nassir and Wang, Hesheng
+             and Dou, Qi and Jin, Yueming and Ban, Yutong},
+  journal = {Nature Machine Intelligence},
+  year    = {2026}
+}</pre>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <div class="container">
-        <p>
-          © 2026 Surg-R1 Project. This page is intended for academic
-          demonstration and communication.
-        </p>
+      <div class="container footer-inner">
+        <p>&copy; 2026 Surg-R1 Project &middot; Shanghai Jiao Tong University</p>
+        <div class="footer-links">
+          <a href="https://github.com/JianJiangKCL/Surg-R1" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a href="mailto:yban@sjtu.edu.cn"><i class="fa-solid fa-envelope"></i></a>
+        </div>
       </div>
     </footer>
+
+    <script>
+      function copyBib() {
+        const t = document.getElementById("bibtex").innerText;
+        navigator.clipboard.writeText(t);
+        const btn = document.querySelector(".copy-btn");
+        btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+        setTimeout(() => btn.innerHTML = '<i class="fa-regular fa-copy"></i>', 1500);
+      }
+    </script>
   </body>
 </html>
