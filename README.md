@@ -1,13 +1,13 @@
 # Surg-R1 — Project Homepage
 
-**Live site:** <https://jianjiangkcl.github.io/Surg-R1/>
+**Live site:** <https://jianjiang1995.github.io/Surg-R1/>
 
 ## Quick Reference
 
 | Item | Location / Value |
 |------|-----------------|
-| Live URL | `https://jianjiangkcl.github.io/Surg-R1/` |
-| GitHub repo | `https://github.com/JianJiangKCL/Surg-R1` |
+| Live URL | `https://jianjiang1995.github.io/Surg-R1/` |
+| GitHub repo | `https://github.com/jianjiang1995/Surg-R1` |
 | Deploy source | `main` branch / root (`/`) |
 
 ## Editable Content
