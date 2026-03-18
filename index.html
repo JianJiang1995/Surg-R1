@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Surg-R1 | Hierarchical Reasoning for Surgical Scene Understanding</title>
-    <meta name="description" content="Surg-R1: Hierarchical 3-level Reasoning for Surgical Scene Understanding. A surgical VLM with chain-of-thought reasoning." />
+    <title>Surg-R1 | Hierarchical Reasoning for Surgical Decision Support</title>
+    <meta name="description" content="Surg-R1: A Hierarchical Reasoning Foundation Model for Scalable and Interpretable Surgical Decision Support with Multi-Center Clinical Validation." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
@@ -17,11 +17,12 @@
       <div class="container nav-inner">
         <a href="#" class="nav-brand">Surg-R1</a>
         <div class="nav-links">
-          <a href="#demo">Demo</a>
           <a href="#abstract">Abstract</a>
-          <a href="#results">Results</a>
+          <a href="#authors">Authors</a>
           <a href="#method">Method</a>
-          <a href="#authors">Team</a>
+          <a href="#results">Results</a>
+          <a href="#cases">Cases</a>
+          <a href="#bibtex">BibTeX</a>
         </div>
       </div>
     </nav>
@@ -29,9 +30,8 @@
     <!-- ========== HERO ========== -->
     <header class="hero">
       <div class="container hero-inner">
-        <span class="badge"><i class="fa-solid fa-flask"></i> Surgical AI Research</span>
-        <h1><span class="highlight">Surg-R1</span></h1>
-        <p class="hero-sub">Hierarchical 3-Level Reasoning for Surgical Scene Understanding</p>
+        <h1>Surg-R1</h1>
+        <p class="hero-sub">A Hierarchical Reasoning Foundation Model for Scalable and Interpretable Surgical Decision Support with Multi-Center Clinical Validation</p>
 
         <div class="hero-stats">
           <div class="stat">
@@ -56,59 +56,89 @@
         </div>
 
         <div class="hero-actions">
-          <a href="#demo" class="btn btn-white"><i class="fa-solid fa-play"></i> Watch Demo</a>
-          <a href="https://github.com/jianjiang1995/Surg-R1" class="btn btn-outline" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="https://arxiv.org/abs/2603.12430" class="btn btn-pill" target="_blank">arXiv</a>
+          <a href="https://arxiv.org/pdf/2603.12430.pdf" class="btn btn-pill" target="_blank">Paper</a>
+          <span class="btn btn-pill btn-disabled">Dataset (coming soon)</span>
+          <span class="btn btn-pill btn-disabled">Code (coming soon)</span>
+        </div>
+
+        <div class="hero-teaser">
+          <img src="assets/images/hero-teaser.png" alt="Surg-R1: Hierarchical Chain-of-Thought Reasoning" />
         </div>
       </div>
     </header>
 
     <main>
-      <!-- ========== DEMO VIDEO ========== -->
-      <section id="demo" class="section">
-        <div class="container">
-          <h2 class="section-title">Software Demo</h2>
-          <p class="section-desc">This demo shows a real-time surgical video analysis system built on top of Surg-R1. Surg-R1 performs per-frame perception (phase recognition, action description, tool localization), and its outputs are cascaded into a window-level synthesizer that resolves intra-frame and inter-frame contradictions to produce temporally coherent surgical narratives.</p>
-          <div class="video-wrapper">
-            <video controls preload="metadata" playsinline class="demo-video">
-              <source src="assets/videos/surgr1-demo-web.mp4" type="video/mp4" />
-              Your browser does not support HTML5 video.
-            </video>
-          </div>
-          <p class="demo-detail-link"><a href="demo-pipeline.html"><i class="fa-solid fa-arrow-right"></i> Technical details of the analysis pipeline</a></p>
-
-        </div>
-      </section>
-
       <!-- ========== ABSTRACT ========== -->
-      <section id="abstract" class="section section-alt">
+      <section id="abstract" class="section">
         <div class="container narrow">
           <h2 class="section-title">Abstract</h2>
           <div class="abstract-card">
-            <p>Surgical scene understanding demands not only accurate predictions but also interpretable reasoning that surgeons can verify against clinical expertise. However, existing surgical vision-language models generate predictions without reasoning chains, and general-purpose reasoning models fail on compositional surgical tasks without domain-specific knowledge.</p>
-            <p>We present <strong>Surg-R1</strong>, a surgical Vision-Language Model that addresses this gap through hierarchical reasoning trained via a four-stage pipeline. Our approach introduces three key contributions: <strong>(1)</strong> a three-level reasoning hierarchy decomposing surgical interpretation into perceptual grounding, relational understanding, and contextual reasoning; <strong>(2)</strong> the largest surgical chain-of-thought dataset with 320,000 reasoning pairs; and <strong>(3)</strong> a four-stage training pipeline progressing from supervised fine-tuning to group relative policy optimization and iterative self-improvement.</p>
-            <p>Evaluation on <strong>SurgBench-13</strong>, comprising seven public benchmarks and six multi-center external validation datasets from five institutions, demonstrates that Surg-R1 outperforms GPT-5.1, Gemini 3.0 Pro, and specialized surgical VLMs across instrument localization, visual question answering, triplet recognition, phase recognition, action recognition, and critical view of safety assessment, achieving the highest Arena Score (<strong>64.9%</strong>) on public benchmarks versus GPT-5.1 (39.7%), Gemini 3.0 Pro (32.3%), and SurgVLM-72B (56.0%), and a 15.2 percentage point improvement over the strongest surgical baseline on external validation.</p>
+            <p>Surgical scene understanding demands not only accurate predictions but also interpretable reasoning that surgeons can verify against clinical expertise. However, existing surgical vision-language models generate predictions without reasoning chains, and general-purpose reasoning models fail on compositional surgical tasks without domain-specific knowledge. We present <strong>Surg-R1</strong>, a surgical Vision-Language Model that addresses this gap through hierarchical reasoning trained via a four-stage pipeline. Our approach introduces three key contributions: <strong>(1)</strong> a three-level reasoning hierarchy decomposing surgical interpretation into perceptual grounding, relational understanding, and contextual reasoning; <strong>(2)</strong> the largest surgical chain-of-thought dataset with 320,000 reasoning pairs; and <strong>(3)</strong> a four-stage training pipeline progressing from supervised fine-tuning to group relative policy optimization and iterative self-improvement.</p>
+            <p>Evaluation on <strong>SurgBench</strong>, comprising four public benchmarks and six multi-center external validation datasets from five institutions, demonstrates that Surg-R1 achieves the highest Arena Score (57.7%) on public benchmarks versus Gemini 3.0 Pro (29.8%) and GPT-5.1 (28.5%), outperforming both proprietary reasoning models and specialized surgical VLMs on the majority of tasks spanning triplet recognition, phase recognition, action recognition, and critical view of safety assessment, with a 15.2 percentage point improvement over the strongest surgical baseline on external validation.</p>
           </div>
         </div>
       </section>
 
-      <!-- ========== RESULTS ========== -->
-      <section id="results" class="section">
+      <!-- ========== AUTHORS ========== -->
+      <section id="authors" class="section">
         <div class="container">
-          <h2 class="section-title">Experimental Results</h2>
-          <p class="section-desc">Comprehensive evaluation across 13 datasets, 6 surgical AI tasks, and comparisons against 20+ state-of-the-art models.</p>
+          <h2 class="section-title">Authors</h2>
+          <p class="section-desc">An international collaboration across fourteen institutions.</p>
 
-          <div class="figure-block">
-            <figure>
-              <img src="assets/images/figure2.png" alt="Training data statistics, inhouse benchmark results, public benchmark arena scores, and CoT data composition" loading="lazy" />
-              <figcaption><strong>Figure 1.</strong> (a) Training data distribution across datasets. (b) Inhouse dataset benchmark. (c) Public dataset benchmark arena scores. (d) Chain-of-thought training data composition — 320K total reasoning pairs.</figcaption>
-            </figure>
+          <div class="author-list">
+            <div class="author equal"><strong>Jian Jiang</strong><sup>1,†</sup></div>
+            <div class="author equal"><strong>Chenxi Lin</strong><sup>1,†</sup></div>
+            <div class="author"><strong>Yiming Gu</strong><sup>1</sup></div>
+            <div class="author"><strong>Zengyi Qin</strong><sup>5</sup></div>
+            <div class="author"><strong>Zhitao Zeng</strong><sup>3</sup></div>
+            <div class="author"><strong>Kun Yuan</strong><sup>9</sup></div>
+            <div class="author"><strong>Yonghao Long</strong><sup>4</sup></div>
+            <div class="author"><strong>Xiang Xia</strong><sup>6</sup></div>
+            <div class="author"><strong>Cheng Yuan</strong><sup>1</sup></div>
+            <div class="author"><strong>Yuqi Wang</strong><sup>1</sup></div>
+            <div class="author"><strong>Zijie Yue</strong><sup>8</sup></div>
+            <div class="author"><strong>Kunyi Yang</strong><sup>1</sup></div>
+            <div class="author"><strong>Yuting Zhang</strong><sup>1</sup></div>
+            <div class="author"><strong>Zhu Zhuo</strong><sup>3</sup></div>
+            <div class="author"><strong>Dian Qin</strong><sup>14</sup></div>
+            <div class="author"><strong>Xin Wang</strong><sup>7</sup></div>
+            <div class="author"><strong>NG Chi Fai</strong><sup>13</sup></div>
+            <div class="author"><strong>Brian Anthony</strong><sup>5</sup></div>
+            <div class="author"><strong>Daguang Xu</strong><sup>12</sup></div>
+            <div class="author"><strong>Guy Rosman</strong><sup>10,11</sup></div>
+            <div class="author"><strong>Ozanan Meireles</strong><sup>10</sup></div>
+            <div class="author"><strong>Zizhen Zhang</strong><sup>6</sup></div>
+            <div class="author"><strong>Nicolas Padoy</strong><sup>9</sup></div>
+            <div class="author"><strong>Hesheng Wang</strong><sup>2</sup></div>
+            <div class="author"><strong>Qi Dou</strong><sup>4</sup></div>
+            <div class="author"><strong>Yueming Jin</strong><sup>3</sup></div>
+            <div class="author corresponding"><strong>Yutong Ban</strong><sup>1,*</sup></div>
           </div>
 
-          <div class="figure-block">
-            <figure>
-              <img src="assets/images/figure1.png" alt="Surg-R1 overview: hierarchical reasoning, evaluation radar charts, and training pipeline" loading="lazy" />
-              <figcaption><strong>Figure 2.</strong> (a) Hierarchical 3-level chain-of-thought reasoning example. (b) Surgical anatomy coverage. (c) Radar charts comparing Surg-R1 with proprietary and open-source models on public benchmarks (left) and external validation (right). (d) Four-stage training pipeline overview.</figcaption>
-            </figure>
+          <div class="affil-block">
+            <p class="affil-note"><sup>†</sup> Equal contribution &nbsp;&nbsp; <sup>*</sup> Corresponding author</p>
+            <ol class="affil-list">
+              <li>Global College, Shanghai Jiao Tong University, Shanghai, China</li>
+              <li>School of Automation and Intelligent Sensing, Shanghai Jiao Tong University</li>
+              <li>National University of Singapore, Singapore</li>
+              <li>The Chinese University of Hong Kong, Hong Kong SAR, China</li>
+              <li>Massachusetts Institute of Technology, Cambridge, MA, USA</li>
+              <li>Renji Hospital, Shanghai Jiao Tong University School of Medicine, Shanghai, China</li>
+              <li>West China Hospital of Sichuan University, Chengdu, China</li>
+              <li>Tongji University, Shanghai, China</li>
+              <li>ICube, University of Strasbourg, CNRS, IHU Strasbourg, France</li>
+              <li>Massachusetts General Hospital, Massachusetts, US</li>
+              <li>Duke University, Durham, NC, USA</li>
+              <li>Nvidia, US</li>
+              <li>Department of Surgery, The Chinese University of Hong Kong, Hong Kong SAR, China</li>
+              <li>Chengdu Withai Innovations Technology Company, Chengdu, China</li>
+            </ol>
+          </div>
+
+          <div class="contact-card">
+            <h3><i class="fa-solid fa-envelope"></i> Contact</h3>
+            <p>Corresponding author: <strong>Yutong Ban</strong> — <a href="mailto:yban@sjtu.edu.cn">yban@sjtu.edu.cn</a></p>
           </div>
         </div>
       </section>
@@ -139,61 +169,65 @@
               <p>SFT pretraining → Cold-start CoT supervision → GRPO reinforcement learning → Iterative dual-pathway refinement.</p>
             </div>
           </div>
+
+          <div class="figure-block">
+            <figure>
+              <img src="assets/images/figure1.png" alt="Surg-R1 overview: hierarchical reasoning, evaluation radar charts, and training pipeline" loading="lazy" />
+              <figcaption><strong>Figure 1.</strong> (a) Hierarchical 3-level chain-of-thought reasoning example. (b) Surgical anatomy coverage. (c) Radar charts comparing Surg-R1 with proprietary and open-source models on public benchmarks (left) and external validation (right). (d) Four-stage training pipeline overview.</figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
-      <!-- ========== AUTHORS ========== -->
-      <section id="authors" class="section">
+      <!-- ========== EXPERIMENTAL RESULTS ========== -->
+      <section id="results" class="section">
         <div class="container">
-          <h2 class="section-title">Authors</h2>
-          <p class="section-desc">An international collaboration across seven institutions.</p>
+          <h2 class="section-title">Experimental Results</h2>
+          <p class="section-desc">Comprehensive evaluation across 13 datasets, 6 surgical AI tasks, and comparisons against 20+ state-of-the-art models.</p>
 
-          <div class="author-list">
-            <div class="author equal"><strong>Jian Jiang</strong><sup>1,†</sup></div>
-            <div class="author equal"><strong>Chenxi Lin</strong><sup>1,†</sup></div>
-            <div class="author"><strong>Yiming Gu</strong><sup>1</sup></div>
-            <div class="author"><strong>Zengyi Qin</strong></div>
-            <div class="author"><strong>Zhitao Zeng</strong><sup>2</sup></div>
-            <div class="author"><strong>Kun Yuan</strong></div>
-            <div class="author"><strong>Cheng Yuan</strong><sup>1</sup></div>
-            <div class="author"><strong>Yuqi Wang</strong><sup>1</sup></div>
-            <div class="author"><strong>Zijie Yue</strong><sup>6</sup></div>
-            <div class="author"><strong>Kunyi Yang</strong><sup>1</sup></div>
-            <div class="author"><strong>Yuting Zhang</strong><sup>1</sup></div>
-            <div class="author"><strong>Yonghao Long</strong><sup>4</sup></div>
-            <div class="author"><strong>Zhu Zhuo</strong><sup>2</sup></div>
-            <div class="author"><strong>Dian Qin</strong></div>
-            <div class="author"><strong>Xin Wang</strong></div>
-            <div class="author"><strong>Xiang Xia</strong><sup>5</sup></div>
-            <div class="author"><strong>Brian Anthony</strong></div>
-            <div class="author"><strong>Daguang Xu</strong></div>
-            <div class="author"><strong>Guy Rosman</strong></div>
-            <div class="author"><strong>Ozanan Meireles</strong></div>
-            <div class="author"><strong>Zizhen Zhang</strong></div>
-            <div class="author"><strong>Nicolas Padoy</strong><sup>7</sup></div>
-            <div class="author"><strong>Nassir Navab</strong><sup>3</sup></div>
-            <div class="author"><strong>Hesheng Wang</strong></div>
-            <div class="author"><strong>Qi Dou</strong><sup>4</sup></div>
-            <div class="author"><strong>Yueming Jin</strong><sup>2</sup></div>
-            <div class="author corresponding"><strong>Yutong Ban</strong><sup>1,*</sup></div>
+          <div class="figure-block">
+            <figure>
+              <img src="assets/images/figure2.png" alt="Training data statistics, inhouse benchmark results, public benchmark arena scores, and CoT data composition" loading="lazy" />
+              <figcaption><strong>Figure 2.</strong> (a) Training data distribution across datasets. (b) Inhouse dataset benchmark. (c) Public dataset benchmark arena scores. (d) Chain-of-thought training data composition — 320K total reasoning pairs.</figcaption>
+            </figure>
           </div>
 
-          <div class="affil-block">
-            <p class="affil-note"><sup>†</sup> Equal contribution &nbsp;&nbsp; <sup>*</sup> Corresponding author</p>
-            <ol class="affil-list">
-              <li>Shanghai Jiao Tong University, Shanghai, China</li>
-              <li>National University of Singapore, Singapore</li>
-              <li>Technical University of Munich, Germany</li>
-              <li>The Chinese University of Hong Kong, Hong Kong SAR, China</li>
-              <li>Renji Hospital, Shanghai Jiao Tong University School of Medicine, Shanghai, China</li>
-              <li>Tongji University, Shanghai, China</li>
-              <li>ICube, University of Strasbourg, CNRS, IHU Strasbourg, France</li>
-            </ol>
+          <div class="figure-block">
+            <figure>
+              <img src="assets/images/figure1.png" alt="Surg-R1 overview: hierarchical reasoning, evaluation radar charts, and training pipeline" loading="lazy" />
+              <figcaption><strong>Figure 3.</strong> (a) Hierarchical 3-level chain-of-thought reasoning example. (b) Surgical anatomy coverage. (c) Radar charts comparing Surg-R1 with proprietary and open-source models on public benchmarks (left) and external validation (right). (d) Four-stage training pipeline overview.</figcaption>
+            </figure>
           </div>
+        </div>
+      </section>
 
-          <div class="contact-card">
-            <h3><i class="fa-solid fa-envelope"></i> Contact</h3>
-            <p>Corresponding author: <strong>Yutong Ban</strong> — <a href="mailto:yban@sjtu.edu.cn">yban@sjtu.edu.cn</a></p>
+      <!-- ========== CASE FIGURE ========== -->
+      <section id="cases" class="section">
+        <div class="container">
+          <h2 class="section-title">Qualitative Results</h2>
+          <p class="section-desc">Representative examples of Surg-R1's hierarchical reasoning across five surgical AI tasks.</p>
+
+          <div class="figure-block">
+            <figure>
+              <img src="assets/images/qualitative_case.png" alt="Qualitative results: instrument localization, phase recognition, action recognition, triplet recognition, and critical view of safety assessment" loading="lazy" />
+              <figcaption><strong>Figure 4.</strong> Qualitative results across five tasks — instrument localization, phase recognition, action recognition, triplet recognition, and critical view of safety assessment — showing Surg-R1's structured question, chain-of-thought thinking process, and final answer for each case.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== BIBTEX ========== -->
+      <section id="bibtex" class="section section-alt">
+        <div class="container">
+          <h2 class="section-title">BibTeX</h2>
+          <div class="cite-box">
+            <button class="copy-btn" type="button" onclick="navigator.clipboard.writeText(document.getElementById('bibtex-code').textContent); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy', 1500)">Copy</button>
+            <pre id="bibtex-code">@article{jiang2026surgr1,
+  title={Surg-R1: A Hierarchical Reasoning Foundation Model for Scalable and Interpretable Surgical Decision Support with Multi-Center Clinical Validation},
+  author={Jian Jiang and Chenxi Lin and Yiming Gu and Zengyi Qin and Zhitao Zeng and Kun Yuan and Yonghao Long and Xiang Xia and Cheng Yuan and Yuqi Wang and Zijie Yue and Kunyi Yang and Yuting Zhang and Zhu Zhuo and Dian Qin and Xin Wang and NG Chi Fai and Brian Anthony and Daguang Xu and Guy Rosman and Ozanan Meireles and Zizhen Zhang and Nicolas Padoy and Hesheng Wang and Qi Dou and Yueming Jin and Yutong Ban},
+  journal={arXiv preprint arXiv:2603.12430},
+  year={2026}
+}</pre>
           </div>
         </div>
       </section>

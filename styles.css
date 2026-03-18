@@ -107,21 +107,10 @@ a:hover {
 
 /* ===== Hero ===== */
 .hero {
-  background: linear-gradient(160deg, #0f1b3d 0%, #162454 40%, #1e3a8a 100%);
-  color: #fff;
-  padding: 5rem 0 4rem;
+  background: #ffffff;
+  color: var(--text);
+  padding: 4rem 0 3rem;
   position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(59, 130, 246, 0.2) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
-  pointer-events: none;
 }
 
 .hero-inner {
@@ -129,54 +118,31 @@ a:hover {
   text-align: center;
 }
 
-.badge {
-  display: inline-block;
-  padding: 0.35rem 0.9rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.badge i {
-  margin-right: 0.35rem;
-}
-
-h1 {
-  margin-top: 1.2rem;
-  font-size: clamp(2.8rem, 7vw, 4.5rem);
+.hero h1 {
+  margin-top: 0;
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.1;
-}
-
-.highlight {
-  background: linear-gradient(135deg, #60a5fa, #a78bfa);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text);
 }
 
 .hero-sub {
-  margin-top: 0.6rem;
-  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  margin-top: 0.5rem;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary);
 }
 
 .hero-stats {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   display: inline-flex;
   align-items: center;
-  gap: 1.4rem;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius);
-  padding: 0.9rem 1.8rem;
+  gap: 1.2rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.7rem 1.5rem;
 }
 
 .stat {
@@ -186,32 +152,76 @@ h1 {
 }
 
 .stat-val {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 800;
   font-family: var(--mono);
   letter-spacing: -0.02em;
+  color: var(--text);
 }
 
 .stat-label {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: 0.15rem;
+  color: var(--text-secondary);
+  margin-top: 0.1rem;
 }
 
 .stat-divider {
   width: 1px;
-  height: 32px;
-  background: rgba(255, 255, 255, 0.15);
+  height: 28px;
+  background: var(--border);
 }
 
 .hero-actions {
-  margin-top: 1.8rem;
+  margin-top: 1.5rem;
   display: flex;
-  gap: 0.8rem;
+  gap: 0.6rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* Dark pill buttons (SurgSigma style) */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  border: none;
+  background: #363636;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.btn-pill:hover {
+  opacity: 0.9;
+}
+
+.btn-pill.btn-disabled {
+  cursor: default;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.hero-teaser {
+  margin-top: 2rem;
+  max-width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: #ffffff;
+}
+
+.hero-teaser img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #ffffff;
 }
 
 .btn {
@@ -239,13 +249,12 @@ h1 {
 
 .btn-outline {
   background: transparent;
-  color: #fff;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  color: var(--text);
+  border: 1.5px solid var(--border);
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--bg-alt);
 }
 
 /* ===== Sections ===== */
@@ -271,22 +280,6 @@ h1 {
   max-width: 640px;
   margin-left: auto;
   margin-right: auto;
-}
-
-/* ===== Video ===== */
-.video-wrapper {
-  margin: 1.5rem auto 0;
-  max-width: 680px;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: #0f0f17;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border);
-}
-
-.demo-video {
-  width: 100%;
-  display: block;
 }
 
 /* ===== Abstract ===== */
@@ -322,7 +315,7 @@ h1 {
 }
 
 .figure-block figure {
-  background: var(--bg);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -332,6 +325,8 @@ h1 {
 .figure-block figure img {
   width: 100%;
   display: block;
+  background: #ffffff;
+  vertical-align: top;
 }
 
 .figure-block figcaption {
@@ -547,23 +542,6 @@ h1 {
 
 .footer-links a:hover {
   color: var(--accent);
-}
-
-/* ===== Demo Detail Link ===== */
-.demo-detail-link {
-  margin-top: 1rem;
-  text-align: center;
-}
-
-.demo-detail-link a {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--accent);
-}
-
-.demo-detail-link a i {
-  margin-right: 0.3rem;
-  font-size: 0.8rem;
 }
 
 /* ===== Sub-page Elements ===== */
